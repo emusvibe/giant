@@ -14,9 +14,9 @@ class ItemsController extends Controller
      */
     public function index()
     {
-       $items = Item::all();
-    
-       return view('shop.index')->with('items','$items');
+      
+       $items = Item::orderBy('created_at', 'desc')->paginate(1);          
+       return view('shop.index',compact('items'));
     }
 
     /**
@@ -38,11 +38,18 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'description' => 'required',
+            'color' => 'required',
+            'print_text' => 'required'
+        ]);
+
         $items = $request->all();
         $items['description'] = json_encode($items['description']);
         $items['color'] = json_encode($items['color']);
         Item::create($items);
-        return redirect()->back();
+        return redirect('/items')->with('success', 'Order Created');
    
   
     
@@ -61,7 +68,8 @@ class ItemsController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Item::find($id);
+        return view('shop.show')->with('item', $item);
     }
 
     /**

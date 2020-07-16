@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::resource('items', 'ItemsController');
 Route::resource('pages', 'PagesController');
+Route::get('dynamic_pdf','PDFController@index');
+Route::get('dynamic_pdf/pdf','PDFController@pdf');

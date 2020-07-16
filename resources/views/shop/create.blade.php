@@ -3,8 +3,8 @@
 
 @section('content')
 
-        <div class="row">
-            <div class="col-md-12-centered offset-2 mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12 offset-2 mt-5">
                 <div class="card">
                     <div class="card-header bg-info">
                         <h6 class="text-white">Request Orders</h6>
@@ -15,12 +15,10 @@
 						<div class="form-group">
 							<label><strong>Select Item(s) :</strong></label><br/>
 							<select class="selectpicker" multiple data-live-search="true" name="description[]">
-							  <option value="php">PHP</option>
-							  <option value="react">React</option>
-							  <option value="jquery">JQuery</option>
-							  <option value="javascript">Javascript</option>
-							  <option value="angular">Angular</option>
-							  <option value="vue">Vue</option>
+							  <option value="php">Item 1</option>
+							  <option value="react">Item 2</option>	
+							  <option value="react">Item 3</option>	
+							  <option value="react">Item 4</option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -41,34 +39,8 @@
 							<button type="submit" class="btn btn-success">Save</button>
 						</div>
 					</form>
-                    </div>
-                    
-                </div>
-                <table class="table table-bordered mt-5">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Item</th>
-                        <th scope="col">Color</th>
-                        <th scope="col">Text Printed</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($items as $row)
-                      <tr>
-                        <td>{{$row['id']}}</td>
-                        <td>{{$row['description']}}</td>
-                        <td>{{$row['color']}}</td>
-                        <td>{{$row['print_text']}}</td>
-                        <td><a href=""></a><button class="btn btn-success">Edit</button></a> 
-                            <a href=""></a><button class="btn btn-danger">Delete</button></a> </td>
-                            
-                           
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                    </div>                    
+                </div>                
             </div>
         </div>
        @endsection
