@@ -17,14 +17,19 @@
 <small>Created on {{$item['created_at']}}</small>
 <hr>
 <a href="/items/{{$item->id}}/edit" class="btn btn-primary">Edit</a>
-<a href="/items/{{$item->id}}/delete" class="btn btn-danger">Delete</a>
 
- <form method="POST" action="{{action('ItemsController@destroy',$item->id)}}" enctype="multipart/form-data">
+
+<form method="POST" action="{{action('ItemsController@destroy',$item->id)}}" enctype="multipart/form-data">
     @csrf
     @method('delete')
-    
-</form>
+  <div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div>
+      <button id="submit" name="submit" class="btn btn-danger">Delete</button>
+  </div>
+  </div>   
 
+</form>
 
 @endsection
       
