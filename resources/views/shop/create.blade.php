@@ -1,8 +1,5 @@
 @extends('layouts.app')
-
-
 @section('content')
-
         <div class="row justify-content-center">
             <div class="col-md-12 offset-2 mt-5">
                 <div class="card">
@@ -15,10 +12,10 @@
 						<div class="form-group">
 							<label><strong>Select Item(s) :</strong></label><br/>
 							<select class="selectpicker" multiple data-live-search="true" name="description[]">
-							  <option value="php">Item 1</option>
-							  <option value="react">Item 2</option>	
-							  <option value="react">Item 3</option>	
-							  <option value="react">Item 4</option>
+							  <option value="nike">Nike</option>
+							  <option value="reebok">Reebok</option>	
+							  <option value="adidad">Adidas</option>	
+							  <option value="levi">Levi</option>
 							</select>
 						</div>
 						<div class="form-group">

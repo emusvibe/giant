@@ -4,10 +4,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="{{route('items.create')}}">Shop <span class="sr-only">(current)</span></a>       
-      <a class="nav-item nav-link" href="/items/create" tabindex="-1" aria-disabled="true"><strong>Create Order</strong> </a>
-        
+      <div class="navbar-nav">           
+      <a class="nav-item nav-link" href="/items/create" tabindex="-1" aria-disabled="true"><strong>Create Order</strong> </a>        
       </div>
     </div>
   </nav>
