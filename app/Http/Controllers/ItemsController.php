@@ -15,7 +15,7 @@ class ItemsController extends Controller
     public function index()
     {
       
-       $items = Item::orderBy('created_at', 'desc')->paginate(1);          
+       $items = Item::orderBy('created_at', 'desc')->paginate(10);          
        return view('shop.index',compact('items'));
     }
 
@@ -80,7 +80,8 @@ class ItemsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Item::find($id);
+        return view('shop.edit')->with('item', $item); 
     }
 
     /**
@@ -92,7 +93,21 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'description' => 'required',
+            'color' => 'required',
+            'print_text' => 'required'
+        ]);
+
+       $items = Item::find($id);
+       $items->description = $request->get('description');
+       $items->color = $request->get('color');
+       $items->print_text = $request->get('print_text');
+       $items['description'] = json_encode($items['description']);
+        $items['color'] = json_encode($items['color']);
+
+        $items->save();
+        return redirect('/items')->with('success', 'Order updated');
     }
 
     /**
